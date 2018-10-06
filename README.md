@@ -18,3 +18,6 @@ Program ini berdasarkan pada <https://www.desmos.com/api/v1.2/docs/index.html>
 -   Can draw general mathematical functions
 
 This program is based on <https://www.desmos.com/api/v1.2/docs/index.html>
+
+** LatexMathjax to LatexMathjaxGraph (experiment) **
+https://rawgit.com/dirkncl/Mathematics/master/LatexMathjaxGraph.html
