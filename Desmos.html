@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="dirkncl.github.com Desmos Graphing Calculator, learn mathematical function for graphing">
+    <meta name="keywords" content="desmos, mathematics, graphing, 2d graph">
+    <script>
+      navigator.onLine?document.write('<script src="https://www.desmos.com/api/v1.2/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"><\/script>'):document.write('<script src="calculator.js"><\/script>');
+    </script>
+  </head>
+  <body>
+    <input type="file" id="files" name="file" accept='.json' /> 
+    <button id='saveas'>Save as</button>
+    <button id='empty'>Blank</button>
+    
+    <script>
+      var isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent); 
+      var fileToSave='FileName';
+      var div=document.createElement('div');
+      div.id="calculator";
+      
+      if(isMobile){
+        div.style="width: 414px; height: 736px;";
+      }
+      else{
+      div.style="width: 1050px; height: 550px;";
+      }
+      document.body.appendChild(div);
+      var elt = document.getElementById('calculator');
+      var calculator = Desmos.Calculator(elt);
+    
+      function handleFileSelect(evt){
+        var files = evt.target.files[0];
+        document.title=files.name;
+        fileToSave=files.name;
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            calculator.setState(event.target.result);
+          };
+          reader.readAsText(files);
+      }  
+      document.getElementById('files').addEventListener('change', handleFileSelect, false);
+      function toSave(a, filename, content) {
+        contentType =  'data:application/octet-stream,';
+        uriContent = contentType + encodeURIComponent(content);
+        a.setAttribute('href', uriContent);
+        a.setAttribute('download', filename);
+      }
+      function SaveAs(filename, content) {
+        var a = document.createElement('a');
+        toSave(a, filename, content);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+      document.getElementById('saveas').addEventListener('click', function(){
+        SaveAs(fileToSave, JSON.stringify(calculator.getState()))
+      }, false);
+      document.getElementById('empty').addEventListener('click', function(){calculator.setBlank()}, false);
+    
+    </script>
+  </body>
+</html>
