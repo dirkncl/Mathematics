@@ -10,22 +10,38 @@
     </script>
   </head>
   <body>
-    <input type="file" id="files" name="file" accept='.json' /> 
-    <button id='saveas'>Save as</button>
-    <button id='empty'>Blank</button>
-    
+    <div style='position:absolute; margin-top:-15px; width: 1050px; background-color:blue;z-index:999'>
+      <button>
+        <label style="cursor: pointer">
+          <input style='display:none' type="file" id="files" name="file" accept='.json' />Open Local
+        </label>
+      </button>
+      <button id='saveas'><label style="cursor: pointer">Save as</label></button>
+      <button id='empty'><label style="cursor: pointer">Blank</label></button>
+      <button onclick='javascript:handleURL("8qdpedyypl.json")'>sample url 1</button>
+      <button onclick='javascript:handleURL("https://saved-work.desmos.com/calc-states/production/vymzvpqp3k")'>sample url 2</button>
+      <button><a style='text-decoration:none;cursor:pointer' href='Desmos.html?json=uxuttnonb1.json'>sample param 1</a></button>
+      <button><a style='text-decoration:none;cursor:pointer' href='Desmos.html?json=https://saved-work.desmos.com/calc-states/production/wiihpirlid'>sample param 2</a></button>
+      <a style='float:right;color:white;text-decoration:none;cursor:pointer' href='https://github.com/dirkncl/'>Dirk Levinus Nicolaas</a>
+    </div>
     <script>
-      var isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent); 
+      //var isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent); 
+      var FileInput;
       var fileToSave='FileName.json';
       var div=document.createElement('div');
       div.id="calculator";
+      // switch (true){
+      //   case isMobile == 'Android':div.style="width: 360px; height: 640px;";break;
+      //   case isMobile == 'iPhone':div.style="width: 414px; height: 736px;";break;
+      //   default:'';break;
+      // }
+      //if(isMobile){
+      //  div.style="margin-top:15px; width: 360px; height: 640px;";
+      //}
+      //else{
+          div.style="margin-top:25px; width: 1050px; height: 550px;";
+      //}      
       
-      if(isMobile){
-        div.style="width: 414px; height: 736px;";
-      }
-      else{
-      div.style="width: 1050px; height: 550px;";
-      }
       document.body.appendChild(div);
       var elt = document.getElementById('calculator');
       var calculator = Desmos.Calculator(elt);
@@ -39,7 +55,23 @@
             calculator.setState(event.target.result);
           };
           reader.readAsText(files);
-      }  
+      } 
+      function handleURL(fileJson){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 0||this.status == 200) {
+            calculator.setState(this.responseText);
+          }
+        };
+        xhttp.open("GET", fileJson, true);
+        xhttp.send();
+      }
+      function getParam(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
       document.getElementById('files').addEventListener('change', handleFileSelect, false);
       function toSave(a, filename, content) {
         contentType =  'data:application/octet-stream,';
@@ -58,7 +90,8 @@
         SaveAs(fileToSave, JSON.stringify(calculator.getState()))
       }, false);
       document.getElementById('empty').addEventListener('click', function(){calculator.setBlank()}, false);
-    
+       FileIn=getParam("json");
+       if(FileIn)handleURL(FileIn);
     </script>
   </body>
 </html>
