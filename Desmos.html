@@ -10,7 +10,8 @@
     </script>
   </head>
   <body>
-    <div style='position:absolute; margin-top:-15px; width: 1050px; background-color:blue;z-index:999'>
+    <!--<div style='position:absolute; margin-top:-20px; background-color:blue;z-index:999'>-->
+    <div style='position:relative; margin-top:15px; background-color:blue;z-index:999'>
       <button>
         <label style="cursor: pointer">
           <input style='display:none' type="file" id="files" name="file" accept='.json' />Open Local
@@ -36,10 +37,10 @@
       //   default:'';break;
       // }
       //if(isMobile){
-      //  div.style="margin-top:15px; width: 360px; height: 640px;";
+      //  div.style="margin-top:25px; width: 360px; height: 640px;";
       //}
       //else{
-          div.style="margin-top:25px; width: 1050px; height: 550px;";
+          div.style="margin-top:0px;height: 550px;";
       //}      
       
       document.body.appendChild(div);
@@ -90,8 +91,8 @@
         SaveAs(fileToSave, JSON.stringify(calculator.getState()))
       }, false);
       document.getElementById('empty').addEventListener('click', function(){calculator.setBlank()}, false);
-       FileIn=getParam("json");
-       if(FileIn)handleURL(FileIn);
+      FileIn=getParam("json");
+      if(FileIn)handleURL(FileIn);
     </script>
   </body>
 </html>
