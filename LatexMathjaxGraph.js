@@ -78,7 +78,7 @@ as your HTML page.
 	  var req;
     req = new XMLHttpRequest();
 	  req.onreadystatechange = function(){
-	    if (req.readyState==4 && req.status==0){
+	    if (req.readyState==4 && (req.status==0||req.status==200)){
 	  	  //document.getElementById('ltx').innerHTML = req.responseText;
 	  	  body.innerText = req.responseText;
 	    }
@@ -134,8 +134,6 @@ as your HTML page.
 
       st = st.replace(/\\begin\{displaymath\}/g,'\n$$');
       st = st.replace(/\\end\{displaymath\}/g,'$$\n');
-      
-      
       st = st.replace(/\\begin\{definition\}/g,'\n<div class="definition">');
       st = st.replace(/\\end\{definition\}/g,"</div>\n");
       st = st.replace(/\\begin\{lemma\}/g,'\n<div class="lemma">');
@@ -175,7 +173,7 @@ as your HTML page.
       st = st.replace(/\\textsc\{([^\}]+)\}/g,'<span class="textsc">$1</span>');
       st = st.replace(/\\textsf\{([^\}]+)\}/g,'<span class="textsf">$1</span>');
       st = st.replace(/\\textsl\{([^\}]+)\}/g,'<span class="textsl">$1</span>');
-      st = st.replace(/\\texttt\{([^\}]+)\}/g,'<span class="texttt">$1</span>');
+      st = st.replace(/\\texttt\{([^\}]+)\}/g,'<code class="texttt">$1</code>');
       st = st.replace(/\\emph\{([^\}]+)\}/g,'<em>$1</em>');
       st = st.replace(/\\verb\|([^\|]+)\|/g,'<pre class="verb">$1</pre>');
       
@@ -263,9 +261,16 @@ as your HTML page.
 	  script.type = "text/x-mathjax-config";
 	  script[(window.opera ? "innerHTML" : "text")] =
 		"MathJax.Hub.Config({\n" +
-    "showProcessingMessages : false, messageStyle : 'none' , showMathMenu: false ,\n" +
-		"  tex2jax: { inlineMath: [['$','$'], ['\\\\(','\\\\)']],  preview : 'none', processEscapes: true }\n" +
-		",  TeX: { extensions: ['color.js'], equationNumbers: { autoNumber: 'AMS' } }\n" +
+    /* *********** */
+    " 'HTML-CSS': {\n" +
+    "    matchFontHeight: false\n" +
+    "  },\n" +
+    /* *********** */
+    "  showProcessingMessages : false,\n" + 
+    "  messageStyle : 'none',\n" + 
+    "  showMathMenu: false ,\n" +
+		"  tex2jax: { inlineMath: [['$','$'], ['\\\\(','\\\\)']],  preview : 'none', processEscapes: true },\n" +
+		"  TeX: { extensions: ['color.js'], equationNumbers: { autoNumber: 'AMS' } }\n" +
 		"});"
 	  head.appendChild(script);
 	  script = document.createElement("script");
@@ -276,6 +281,8 @@ as your HTML page.
 	})();
  }
 })();
+   
+  
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 var translateOnLoad = true;    // set to false to do call translators from js 

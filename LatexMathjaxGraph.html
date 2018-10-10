@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>LaTeXMathJax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
 body {
     counter-reset: section 0 enumerate 0 bibitem 0; 
-    margin-left: 150px;
-    margin-right: 150px;
+    /*margin-left: 150px;*/
+    /*margin-right: 150px;*/
+    /*margin-top: 50px;*/
+    margin-left: 50px;
+    margin-right: 50px;
     margin-top: 50px;
     padding: 0;
     color: #111;
     background: #fff;
+    
+    word-wrap: break-word;
 }
 
 p {
@@ -154,6 +161,8 @@ span.textsf {
 
 span.texttt {
     font-family:monospace,"Courier New", Courier;
+     
+    
 }
 
 
@@ -495,9 +504,9 @@ figures, and so on.  To download, right-click on the following links and choose 
 \newline
 If you download latexmathjax.js or latexmathjax.css, then the URL's in the script and link tags will need to point to the download locations.  
 
-\[\colorbox{yellow}{Note: LaTeXMathJax is designed to automatically load MathJax 
-from a cdn (content distribution network; see end of the latexmathjax.js file).}\]
-\[\colorbox{yellow}{Hence MathJax should not also be loaded at the top of the html file that loads LaTeXMathJax.js since this can cause conflicts preventing MathJax from loading properly.}\]
+\(\colorbox{yellow}{Note: LaTeXMathJax is designed to automatically load MathJax} \\ \colorbox{yellow}{from a cdn (content distribution network; see end of the latexmathjax.js file).}\)
+
+\(\colorbox{yellow}{Hence MathJax should not also be loaded at the top of the html} \\ \colorbox{yellow}{ file that loads LaTeXMathJax.js since this can cause conflicts preventing MathJax from loading properly.}\)
 
 \textbf{The remainder of this text is taken verbatim from Jeff
 Knisley's description of LaTeXMathML. Wherever ASCIIMathML is referenced, it
