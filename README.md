@@ -21,4 +21,4 @@ This program is based on <https://www.desmos.com/api/v1.2/docs/index.html>
 
 **LatexMathjax to LatexMathjaxGraph (experiment)**
 
-https://rawgit.com/dirkncl/Mathematics/master/LatexMathjaxGraph.html
+https://dirkncl.github.io/Mathematics/LatexMathjaxGraph.html
