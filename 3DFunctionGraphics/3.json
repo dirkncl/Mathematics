@@ -1,0 +1,20 @@
+{
+  "bounds":{
+    "type":"auto"
+  },
+  "view":{
+    "theta":-8.25,
+    "phi":5.9399999999999915
+  },
+  "graphs":[
+    {
+      "gtype":"spacecurve",
+      "z":"tan(t)",
+      "x":"t^2",
+      "y":"sin(t^2)",
+      "umin":"-5",
+      "umax":"5",
+      "discr":"50"
+    }
+  ]
+}

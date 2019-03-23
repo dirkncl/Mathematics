@@ -1,0 +1,14 @@
+{
+  "bounds":{"type":"auto"},
+  "view":{"theta":0.5,"phi":1.2},
+  "graphs":[
+    {
+      "gtype":"z",
+      "z":"sin(x)*cos(y)+x*4-y^3",
+      "umin":"-5",
+      "umax":"5",
+      "discr":"20",
+      "vmin":"-5",
+      "vmax":"5"}
+  ]
+}

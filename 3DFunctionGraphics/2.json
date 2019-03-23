@@ -1,0 +1,15 @@
+{
+  "bounds":{"type":"auto"},
+  "view":{"theta":0.5,"phi":1.2},
+  "graphs":[
+    {
+      "gtype":"zrt",
+      "z":"r^2*theta",
+      "umin":"0",
+      "umax":"5",
+      "discr":"20",
+      "vmin":"0",
+      "vmax":"2pi"
+    }
+  ]
+}
