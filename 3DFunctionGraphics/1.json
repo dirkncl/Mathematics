@@ -1,0 +1,21 @@
+{
+  "bounds":{
+    "type":"auto"
+  },
+  "view":{
+    "theta":0.5,"phi":1.2
+  },
+  "graphs":[
+    {
+      "gtype":"paramsurf",
+      "z":"v^2",
+      "x":"u*2",
+      "y":"u*v",
+      "umin":"-5",
+      "umax":"5",
+      "discr":"20",
+      "vmin":"-5",
+      "vmax":"5"
+    }
+  ]
+}

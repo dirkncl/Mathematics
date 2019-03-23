@@ -1,0 +1,15 @@
+{
+  "bounds":{"type":"auto"},
+  "view":{"theta":0.5,"phi":1.2},
+  "graphs":[
+    {
+      "gtype":"z",
+      "z":"x^2+y^2",
+      "umin":"-5",
+      "umax":"5",
+      "discr":"20",
+      "vmin":"-5",
+      "vmax":"5"
+    }
+  ]
+}

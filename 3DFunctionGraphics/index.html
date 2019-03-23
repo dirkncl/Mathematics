@@ -1,0 +1,55 @@
+<html>
+<head>
+ <script src="assets/filers.js"></script>
+</head>
+<body>
+<div id="savebox">
+	<button type="button" onclick="savegraph()">Save</button><br/>
+	<div id="saveout"></div>
+</div>
+ 
+<div id="leftcontrol">
+  <div id="new">
+  	<!--<button type="button" onclick="refresh(),document.getElementsByTagName('a')[0].click();">New</button>-->
+  	<button type="button" onclick="refresh()">New</button>
+    <br/><a href="index.html?sample.json">Sample</a><span> <span><a href="index.html?1.json">Sample 1</a><span> <span><a href="index.html?2.json">Sample 2</a><span> <span><a href="index.html?3.json">Sample 3</a><span> <span><a href="index.html?4.json">Sample 4</a>
+  </div>
+  <div class="funcholder funcinputs"> Add: 
+  	<select id="addgraph" onchange="addgraph(this)">
+  		<option value="">Select...</option>
+  		<option value="z">z=f(x,y) function</option>
+  		<option value="zrt">z=f(r,&theta;) function</option>
+  		<option value="spacecurve">r(t) spacecurve</option>
+  		<option value="paramsurf">r(u,v) surface</option>
+  		<option value="slider">slider</option>
+  	</select>
+  </div>
+  <div id="graphitems"></div>
+  <div class="funcholder">
+    <div class="funcinputs">
+    Bounds: <select id="boundtype" onchange="adjustbounds(this)">
+    		<option value="auto">Auto</option>
+    		<option value="fixed">Fixed</option>
+    	</select>
+    </div>
+    <div class="funccontrol" id="boundsets">
+    xmin: <input id="xmin" type="text" size="3" value="-5" onkeyup="updatebounds()"/>
+    xmax: <input id="xmax" type="text" size="3" value="5" onkeyup="updatebounds()"/><br/>
+    ymin: <input id="ymin" type="text" size="3" value="-5" onkeyup="updatebounds()"/>
+    ymax: <input id="ymax" type="text" size="3" value="5" onkeyup="updatebounds()"/><br/>
+    zmin: <input id="zmin" type="text" size="3" value="-5" onkeyup="updatebounds()"/>
+    zmax: <input id="zmax" type="text" size="3" value="5" onkeyup="updatebounds()"/>
+    </div>
+  </div>
+  <hr>
+  <i>before your saved file, please fill with path where your files to save</i>
+  <input id="path" type="text" value="" size="10" onkeyup="pathChange()" placeholder="./" title = "Change this path to acces your saved files, example:./sample/ or ../sample/data/";/>
+  <div id="saveHolder">Save Monitor</div>
+  
+</div>
+
+<div id="graph" ondblclick="ShowHide('leftcontrol')" title="dblclick to hide/show the left panel">
+  <canvas id="plot3d" width="600" height="600"/>
+</div>
+</body>
+</html>
