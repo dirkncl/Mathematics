@@ -4,5 +4,5 @@
 
 https://dirkncl.github.io/Mathematics/3DFunctionGraphics/index.html
 
-https://dirkncl.github.io/Mathematics/3DFunctionGraphics/index.html?2.json
+https://dirkncl.github.io/Mathematics/3DFunctionGraphics/index.html?3.json
 
