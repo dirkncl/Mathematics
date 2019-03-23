@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown & LaTeX Online Editor</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="LaTeX, Markdown, equations, markdown latex online editor, tikz, latex online">
+  <meta name="description" content="Converts Markdown syntax to HTML, and LaTeX equations to SVG images.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./dist/js/filers.js"></script>
+ 	  <script></script>
+
+</head>
+
+<body>
+  <div class="header" title="Double Click here to replace command line ?file.md">
+    <h1 class="header-item title">Markdown & LaTeX Editor</h1>
+    <div class="header-item open-control">
+      <input type="file" id="fileElem" style="display:none">
+      <button class="toolbar-button _upload-source" title="Upload a file">⇑</button>
+      <button class="toolbar-button _download-source" title="Download source">⇓</button>
+    </div>
+    <div class="header-item demo-control">
+      <input class="control-input" id="id_html" type="radio" name="source_type" checked="checked"><label class="control-item" for="id_html" title="Example of rendered HTML" data-result-as="html">preview</label>
+      <input class="control-input" id="id_src" type="radio" name="source_type"><label class="control-item" for="id_src" title="HTML with img-equations" data-result-as="src">html</label>
+      <input class="control-input" id="id_htmltex" type="radio" name="source_type"><label class="control-item" for="id_htmltex" title="HTML with raw LaTeX equations" data-result-as="htmltex">html-tex</label>
+      <input class="control-input" id="id_md" type="radio" name="source_type"><label class="control-item" for="id_md" title="Markdown with img-equations" data-result-as="md">md</label>
+      <input class="control-input" id="id_habr" type="radio" name="source_type"><label class="control-item" for="id_habr" title="A kind of HTML markup for habr.com" data-result-as="habr">H</label> <button class="toolbar-button _download-result" title="Download result">⇓</button>
+    </div>
+  </div>
+  <div class="container full-height" id="container-block">
+    <div class="half-width full-height source-wrap" id="source-block">
+      <textarea id="editor-source" class="source full-height"></textarea>
+    </div>
+    <!--
+		-->
+    <div class="slider full-height" id="slider"></div>
+    <!--
+		-->
+    <div class="half-width full-height" id="">
+      <div class="result-html full-height"></div>
+      <pre class="result-src full-height">
+        <code class="result-src-content"></code>
+      </pre>
+    </div>
+    <!--
+	-->
+  </div>
+  <script>
+
+if(/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    textareas = document.getElementsByTagName('textarea');
+    for(var i = 0; i < textareas.length; i++) {
+      textareas[i].style['padding-left'] = '13px';
+      textareas[i].style['padding-right'] = '13px';
+    }
+  }
+  </script>
+</body>
+
+</html>
